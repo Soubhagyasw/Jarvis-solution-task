@@ -43,21 +43,9 @@ public class ProductController {
 
         return ResponseEntity.ok(service.getProductById(id));
     }
-
-//    @GetMapping("/findpage")
-//    public ResponseEntity<Page<ProductResponseDTO>> getAll(
-//            @RequestParam(required = false) String category,
-//            @RequestParam(required = false) Integer minPrice,
-//            @RequestParam(required = false) Integer maxPrice,
-//            Pageable page) {
-//
-//        return ResponseEntity.ok(
-//                service.getAllProducts(category, minPrice, maxPrice, page)
-//        );
-//    }
     
     @GetMapping("/findpage")
-    public Page<Products> getAllProducts(
+    public Page<ProductResponseDTO> getAllProducts(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
             @RequestParam(defaultValue = "id") String sortBy,

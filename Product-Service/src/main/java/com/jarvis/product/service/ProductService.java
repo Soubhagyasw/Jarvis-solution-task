@@ -13,24 +13,18 @@ import com.jarvis.product.entity.Products;
 public interface ProductService {
 
 	ProductResponseDTO createProduct(ProductRequestDTO dto);
+
 	ProductResponseDTO getProductById(Long id);
-	
-	Page<ProductResponseDTO> getAllProducts(
-            String category,
-            Integer minPrice,
-            Integer maxPrice,
-            Pageable pageable
-    );
-	
+
+	List<ProductResponseDTO> getAllData();
+
 	ProductResponseDTO updateProduct(Long id, ProductRequestDTO dto);
 
-    ProductResponseDTO patchProduct(Long id, ProductPatchDTO dto);
+	ProductResponseDTO patchProduct(Long id, ProductPatchDTO dto);
 
-    void deleteProduct(Long id);
-    
-	List<ProductResponseDTO> getAllData();
-	
-	Page<Products> getAllProducts(int page, int size, String sortBy, String sortDir, String category, Double minPrice,
-			Double maxPrice, Integer minQty, Integer maxQty);
+	void deleteProduct(Long id);
+
+	Page<ProductResponseDTO> getAllProducts(int page, int size, String sortBy, String sortDir, String category,
+			Double minPrice, Double maxPrice, Integer minQty, Integer maxQty);
 
 }
